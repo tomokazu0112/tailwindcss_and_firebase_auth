@@ -22,4 +22,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  belongs_to :user
+  has_many :post_categories, dependent: :destroy
+  has_many :categories, through: :post_categories
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags
 end
