@@ -20,7 +20,6 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "pry", "~> 0.13.1"
   gem "pry-byebug"
-  gem "pry-doc"
   gem "pry-rails"
 
   gem "factory_bot"
