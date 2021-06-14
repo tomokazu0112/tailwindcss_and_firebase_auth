@@ -1,0 +1,21 @@
+<main class="mx-6">
+  <%= form_with model: model do |f| %>
+    <%= f.label :title, class: "block text-sm font-medium text-gray-700 mt-4" %>
+    <%= f.text_field :title, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", placeholder: "タイトル" %>
+    <%= f.label :summary, class: "block text-sm font-medium text-gray-700 mt-4" %>
+    <%= f.text_field :summary, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", placeholder: "要約" %>
+    <%= f.label :content, class: "block text-sm font-medium text-gray-700 mt-4" %>
+    <%= f.text_area :content, class: "h-96 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", placeholder: "記事内容" %>
+    <p class="mt-2 text-sm text-gray-500">※ Markdown に対応</p>
+    <%= f.label :slug, class: "block text-sm font-medium text-gray-700 mt-4" %>
+    <%= f.text_field :slug, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md", placeholder: "スラッグ" %>
+    <%= f.label :status, class: "block text-sm font-medium text-gray-700 mt-4" %>
+    <%= f.select :status, Post.enum_options_for_select(:status), { include_blank: "選択してください" },
+      { class: "relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left
+                cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                'aria-haspopup': "listbox", 'aria-expanded': "true", 'aria-labelledby': "listbox-label" } %>
+    <div class="text-center">
+      <%= f.submit "投稿する", class: "py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-4" %>
+    </div>
+  <% end %>
+</main>

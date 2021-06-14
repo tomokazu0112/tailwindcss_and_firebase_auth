@@ -22,6 +22,11 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  enum status: {
+    draft: "draft",
+    published: "published",
+  }
+
   belongs_to :user
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
