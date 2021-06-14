@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      post: 記事
+      user: ユーザー
+    attributes:
+      post:
+        title: タイトル
+        summary: 要約
+        content: 記事内容
+        slug: スラッグ
+        status: 投稿状況
+        published_at: 公開日時
+      post/status:
+        draft: 下書き
+        published: 公開中
