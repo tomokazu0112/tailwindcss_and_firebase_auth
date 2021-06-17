@@ -6,12 +6,32 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# Firebase SDK を追加して Firebase を初期化 %>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+
+    <%# FirebaseUI %>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+    <div class="container">
+      <% if logged_in? %>
+        <p>ユーザー: <%= current_user.email %></p>
+        <span style="margin-left:1em">
+          <%= link_to "ログアウト", "", onclick: "firebaseLogout();return false;"%>
+        </span>
+        <span style="margin-left:1em"></span>
+          <%= link_to "アカウント削除", "", onclick: "firebaseUserDelete();return false;"%>
+        </span>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

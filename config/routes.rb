@@ -1,12 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root "firebase#new"
+
+  get    "/login",    to: "firebase#new"
+  post   "/login",    to: "sessions#create"
+  delete "/logout",   to: "sessions#destroy"
+  post   "/accounts", to: "accounts#create"
+  delete "/accounts", to: "accounts#destroy"
+
   namespace :admin do
     root to: "posts#index"
-    resources :users
+    resources :users, only: [:index]
     resources :posts
   end
 
-  root to: "posts#index"
   resources :posts, only: [:index]
 end

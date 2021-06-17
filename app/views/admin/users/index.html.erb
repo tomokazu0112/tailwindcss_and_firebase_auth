@@ -1,0 +1,19 @@
+<h1>登録済アカウント</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>uid</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.uid %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
