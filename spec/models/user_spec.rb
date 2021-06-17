@@ -6,6 +6,7 @@
 #  email      :string           not null
 #  name       :string           not null
 #  profile    :string
+#  uid        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
